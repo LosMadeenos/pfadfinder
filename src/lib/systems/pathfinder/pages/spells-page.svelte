@@ -174,14 +174,14 @@
 												−
 											</button>
 											<button
-												class="btn relative w-8 border-black font-bold text-white btn-success btn-xs after:absolute after:-inset-x-1 after:-inset-y-3 after:content-['']"
+												class="btn relative w-8 bg-green-500 text-lg font-bold btn-xs after:absolute after:-inset-x-1 after:-inset-y-3 after:content-['']"
 												onclick={stopPropagation(
 													preventDefault(() =>
 														changePrepared(level, spellIdx, 1),
 													),
 												)}
 											>
-												+
+												&plus;
 											</button>
 										</div>
 									{/if}
