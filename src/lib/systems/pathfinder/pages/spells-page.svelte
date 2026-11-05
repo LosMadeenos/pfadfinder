@@ -138,7 +138,7 @@
 						(c.spells.displayFilter === 'favorites_only' && !isFavorite) ||
 						(c.spells.displayFilter === 'prepared_only' && !isPrepared ||
 						(c.spells.displayFilter === 'prepared_and_favorites' &&
-							!(isFavorite || isPrepared))}
+							!(isFavorite || isPrepared)))}
 
 					<div class={['flex w-full flex-row', hide && 'hidden']}>
 						<div
