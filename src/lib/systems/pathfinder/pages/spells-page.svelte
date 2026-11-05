@@ -67,6 +67,14 @@
 	<Divider>
 		Spells
 		<Button size="xs" color="primary" onclick={openConfigDialog}>Config</Button>
+		<Button
+			size="xs"
+			color="primary"
+			style={preparationMode ? 'default' : 'outline'}
+			onclick={() => (preparationMode = !preparationMode)}
+		>
+			Prepare
+		</Button>
 	</Divider>
 
 	<div class="flex flex-row items-center gap-2">
@@ -82,14 +90,6 @@
 		</div>
 
 		<Input name="searchstring" placeholder="Search" value={searchString} />
-
-		<Button
-			size="xs"
-			color="primary"
-			onclick={() => (preparationMode = !preparationMode)}
-		>
-			Preparation
-		</Button>
 	</div>
 
 	{#each SPELL_LEVELS as level, idx (level)}
@@ -136,9 +136,9 @@
 								.toLocaleLowerCase()
 								.includes(searchString.value.toLocaleLowerCase())) ||
 						(c.spells.displayFilter === 'favorites_only' && !isFavorite) ||
-						(c.spells.displayFilter === 'prepared_only' && !isPrepared ||
+						(c.spells.displayFilter === 'prepared_only' && !isPrepared) ||
 						(c.spells.displayFilter === 'prepared_and_favorites' &&
-							!(isFavorite || isPrepared)))}
+							!(isFavorite || isPrepared))}
 
 					<div class={['flex w-full flex-row', hide && 'hidden']}>
 						<div
@@ -160,7 +160,10 @@
 									{#if isFavorite}
 										<span class="text-sm font-semibold">★</span>
 									{/if}
-									<span class="grow overflow-hidden text-sm font-semibold text-ellipsis whitespace-nowrap">{spell.name}</span>
+									<span
+										class="grow overflow-hidden text-sm font-semibold text-ellipsis whitespace-nowrap"
+										>{spell.name}</span
+									>
 									{#if preparationMode}
 										<div class="flex flex-row gap-1">
 											<button
